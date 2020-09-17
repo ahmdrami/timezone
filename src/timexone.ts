@@ -1,18 +1,21 @@
 import { TimeXone, TimeXones } from './timexone.models'
 import data from './zones.json'
 
-export const getTimeZone = (timezone: string): TimeXone | null => {
+export const getTimeZone = (): TimeXone | null => {
   const zones: TimeXones = data
+  let timeZone
+
   if (!zones) {
     throw new Error('zones are not loaded')
   }
-  if (!timezone) {
-    throw new Error('timezone is not provided')
-  }
-  const tz: any = zones[timezone]
 
-  if (tz) {
-    return tz
+  if (typeof window === 'object') {
+    timeZone = window.Intl.DateTimeFormat().resolvedOptions().timeZone
   }
-  return null
+
+  if (!timeZone || !zones[timeZone]) {
+    return null
+  }
+
+  return zones[timeZone]
 }
