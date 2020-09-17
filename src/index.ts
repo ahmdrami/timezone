@@ -1,3 +1,1 @@
-export const getTimeZone = (timezone: string) => {
-  return 'hi';
-};
+export * from './timexone'

@@ -6,9 +6,10 @@
   "author": "Ahmad Rami",
   "license": "MIT",
   "scripts": {
+    "build:zones": "ts-node ./data/transform.ts",
     "build": "tsc",
     "format": "prettier --write \"src/**/*.ts\"",
-    "lint": "tslint -p tsconfig.json",
+    "lint": "eslint --ext \"./src/**/*.ts\"",
     "test": "jest --config jestconfig.json",
     "prepare": "yarn build",
     "prepublishOnly": "yarn test && yarn lint",
@@ -17,13 +18,21 @@
     "release": "standard-version"
   },
   "devDependencies": {
+    "@commitlint/cli": "^11.0.0",
+    "@commitlint/config-conventional": "^11.0.0",
     "@types/jest": "^26.0.14",
+    "@typescript-eslint/eslint-plugin": "^4.1.1",
+    "@typescript-eslint/parser": "^4.1.1",
+    "eslint": "^7.9.0",
+    "eslint-config-prettier": "^6.11.0",
+    "eslint-plugin-prettier": "^3.1.4",
+    "husky": "^4.3.0",
     "jest": "^26.4.2",
+    "lint-staged": "^10.4.0",
     "prettier": "^2.1.2",
     "standard-version": "^9.0.0",
     "ts-jest": "^26.3.0",
-    "tslint": "^6.1.3",
-    "tslint-config-prettier": "^1.18.0",
+    "ts-node": "^9.0.0",
     "typescript": "^4.0.2"
   },
   "files": [
