@@ -6,7 +6,7 @@
   "author": "Ahmad Rami",
   "license": "MIT",
   "scripts": {
-    "build:zones": "ts-node ./data/transform.ts",
+    "transform": "ts-node ./data/transform.ts",
     "build": "tsc",
     "format": "prettier --write \"src/**/*.ts\"",
     "lint": "eslint --ext \"./src/**/*.ts\"",

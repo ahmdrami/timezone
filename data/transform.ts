@@ -20,5 +20,5 @@ rd.on('line', (line) => {
 })
 
 rd.on('close', () => {
-  output.write(JSON.stringify(data, null, 2))
+  output.write(JSON.stringify(data))
 })
