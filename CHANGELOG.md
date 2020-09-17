@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.2.0](https://git.curve.tools///compare/v1.1.5...v1.2.0) (2020-09-17)
+
+
+### Features
+
+* updated functionality to not rely on params ([c07c28a](https://git.curve.tools///commit/c07c28a47626f322b1c0db26ba9f495e263b1e5d))
+* updated readme ([3272a8e](https://git.curve.tools///commit/3272a8e10a9d6b8d73f0a3b188bd9107ceec8b39))
+
 ### [1.1.5](https://git.curve.tools///compare/v1.1.4...v1.1.5) (2020-09-17)
 
 ## [1.1.0](https://git.curve.tools///compare/v1.0.1...v1.1.0) (2020-09-17)
