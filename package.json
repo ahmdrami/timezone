@@ -1,7 +1,7 @@
 {
   "name": "timexone",
   "version": "1.0.1",
-  "main": "index.js",
+  "main": "./lib/index.js",
   "repository": "git@git.curve.tools:tech/web/timexone.git",
   "author": "Ahmad Rami",
   "license": "MIT",
