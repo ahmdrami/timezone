@@ -1,0 +1,37 @@
+image: node:13.7.0-stretch
+
+stages:
+  - test
+  - lint
+
+# Cache modules in between jobs
+cache:
+  paths:
+    - node_modules/
+    - yarn.lock
+
+default:
+  before_script:
+    - yarn install
+
+test:
+  stage: test
+  script:
+    - yarn test
+
+lint:
+  stage: lint
+  script:
+    - yarn lint
+
+# publish:
+#   stage: publish
+#   only:
+#     refs:
+#       - master
+#   script:
+#     - yarn build
+#     - npm config set //registry.npmjs.org/:_authToken ${NPM_TOKEN}
+#     - npm publish
+
+
