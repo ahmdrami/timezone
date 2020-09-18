@@ -2,7 +2,7 @@ import { getTimeZone } from './'
 
 describe('timexone', () => {
   test('should return the right timezone based on the Intl api', () => {
-    window.Intl = {
+    global.window.Intl = {
       DateTimeFormat: () => {
         return {
           resolvedOptions: () => ({
@@ -16,7 +16,7 @@ describe('timexone', () => {
   })
 
   test('should return null on an invalid timezone or not found', () => {
-    window.Intl = {
+    global.window.Intl = {
       DateTimeFormat: () => {
         return {
           resolvedOptions: () => ({
@@ -30,7 +30,7 @@ describe('timexone', () => {
   })
 
   test('should return null during SSR', () => {
-    window = undefined
+    global.window = null as any
     const tz = getTimeZone()
     expect(tz).toEqual(null)
   })
