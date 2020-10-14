@@ -1,10 +1,10 @@
 import { TimeXone, TimeXones } from './timexone.models'
 
-export const getTimeZone = (): Promise<TimeXone | null> => {
+export const getTimeZone = (defaultTimeZone = 'Europe/London'): Promise<TimeXone | null> => {
   return new Promise((resolve) => {
     import('./zones.json').then((data) => {
       const zones: TimeXones = data as any
-      let timeZone = 'Europe/London' // default value
+      let timeZone = defaultTimeZone
 
       if (!zones) {
         throw new Error('zones are not loaded')
