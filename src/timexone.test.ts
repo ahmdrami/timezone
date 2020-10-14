@@ -1,7 +1,7 @@
 import { getTimeZone } from './'
 
 describe('timexone', () => {
-  test('should return the right timezone based on the Intl api', () => {
+  test('should return the right timezone based on the Intl api', async () => {
     global.window.Intl = {
       DateTimeFormat: () => {
         return {
@@ -11,11 +11,11 @@ describe('timexone', () => {
         }
       },
     } as any
-    const tz = getTimeZone()
-    expect(tz).toEqual({ code: 'TC', timezone: 'America/Grand_Turk' })
+    const tz = await getTimeZone()
+    expect(tz).toEqual({ code: 'TC', timezone: 'America/Grand_Turk', dial: '+1649' })
   })
 
-  test('should return null on an invalid timezone or not found', () => {
+  test('should return Europe/London on an invalid timezone or not found', async () => {
     global.window.Intl = {
       DateTimeFormat: () => {
         return {
@@ -25,13 +25,13 @@ describe('timexone', () => {
         }
       },
     } as any
-    const tz = getTimeZone()
-    expect(tz).toEqual(null)
+    const tz = await getTimeZone()
+    expect(tz).toEqual({ code: 'GB', dial: '+44', timezone: 'Europe/London' })
   })
 
-  test('should return null during SSR', () => {
+  test('should return the default value during SSR', async () => {
     global.window = null as any
-    const tz = getTimeZone()
-    expect(tz).toEqual(null)
+    const tz = await getTimeZone()
+    expect(tz).toEqual({ code: 'GB', dial: '+44', timezone: 'Europe/London' })
   })
 })

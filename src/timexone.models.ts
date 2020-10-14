@@ -4,4 +4,5 @@ export type TimeXones = {
 export type TimeXone = {
   code: string
   timezone: string
+  dial: string
 }
