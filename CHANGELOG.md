@@ -2,6 +2,18 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.5.0](https://git.curve.tools///compare/v1.4.0...v1.5.0) (2020-10-21)
+
+
+### Features
+
+* updated readme ([c868bf8](https://git.curve.tools///commit/c868bf8fa32364c3e5b4d384a2400ff48142beaf))
+
+
+### Bug Fixes
+
+* no zone data for locale ([38ab068](https://git.curve.tools///commit/38ab068050b84a8b9d007098c44461d97291370e))
+
 ## [1.4.0](https://git.curve.tools///compare/v1.3.0...v1.4.0) (2020-10-14)
 
 
