@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.6.0](https://git.curve.tools///compare/v1.5.0...v1.6.0) (2020-10-21)
+
+
+### Features
+
+* updated readme ([c7942a7](https://git.curve.tools///commit/c7942a77bd402693efb6e26ec388cebedbc91143))
+
 ## [1.5.0](https://git.curve.tools///compare/v1.4.0...v1.5.0) (2020-10-21)
 
 
