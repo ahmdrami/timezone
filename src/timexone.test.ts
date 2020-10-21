@@ -29,6 +29,20 @@ describe('timexone', () => {
     expect(tz).toEqual({ code: 'GB', dial: '+44', timezone: 'Europe/London' })
   })
 
+  test('should return Europe/London when timezone data is no available', async () => {
+    global.window.Intl = {
+      DateTimeFormat: () => {
+        return {
+          resolvedOptions: () => ({
+            timeZone: 'America/Buenos_Aires',
+          }),
+        }
+      },
+    } as any
+    const tz = await getTimeZone()
+    expect(tz).toEqual({ code: 'GB', dial: '+44', timezone: 'Europe/London' })
+  })
+
   test('should return the default value during SSR', async () => {
     global.window = null as any
     const tz = await getTimeZone()

@@ -5,16 +5,19 @@ export const getTimeZone = (defaultTimeZone = 'Europe/London'): Promise<TimeXone
     import('./zones.json').then((data) => {
       const zones: TimeXones = data as any
       let timeZone = defaultTimeZone
-
       if (!zones) {
         throw new Error('zones are not loaded')
       }
 
       if (typeof window === 'object') {
-        timeZone = window.Intl.DateTimeFormat().resolvedOptions().timeZone || timeZone
+        timeZone = window.Intl.DateTimeFormat().resolvedOptions().timeZone
       }
 
-      resolve(zones[timeZone])
+      if (zones[timeZone]) {
+        resolve(zones[timeZone])
+      } else {
+        resolve(zones[defaultTimeZone])
+      }
     })
   })
 }
