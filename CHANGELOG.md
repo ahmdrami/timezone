@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.7.0](https://git.curve.tools///compare/v1.6.0...v1.7.0) (2021-01-18)
+
+
+### Features
+
+* added currency code ([8f67f70](https://git.curve.tools///commit/8f67f70132ad66f01599eeba3cc6ae0a0b562483))
+
 ## [1.6.0](https://git.curve.tools///compare/v1.5.0...v1.6.0) (2020-10-21)
 
 
