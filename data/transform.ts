@@ -6,7 +6,7 @@ import { TimeXones } from '../src/timexone.models'
 const output = fs.createWriteStream('src/zones.json')
 
 const timezones: TimeXones = {}
-const countries: { [key: string]: { iso_code: string; dial: string } } = {}
+const countries: { [key: string]: { iso_code: string; dial: string; currency_code: string } } = {}
 
 const formatCountries = async () => {
   const countriesReader = readline.createInterface({
@@ -15,6 +15,7 @@ const formatCountries = async () => {
   const interestedHeaders: { [key: string]: any } = {
     Dial: { name: 'Dial', index: -1 },
     'ISO3166-1-Alpha-2': { name: 'ISO3166-1-Alpha-2', index: -1 },
+    'ISO4217-currency_alphabetic_code': { name: 'ISO4217-currency_alphabetic_code', index: -1 },
   }
 
   let isHeader = false
@@ -32,11 +33,13 @@ const formatCountries = async () => {
     } else {
       const iso_code = cols[interestedHeaders['ISO3166-1-Alpha-2'].index]
       const dial = cols[interestedHeaders.Dial.index]
-
+      const currency_code = cols[interestedHeaders['ISO4217-currency_alphabetic_code'].index]
+      console.log({ currency_code })
       if (iso_code) {
         countries[iso_code] = {
           iso_code,
           dial,
+          currency_code,
         }
       }
     }
@@ -56,7 +59,10 @@ const formatTimeZones = async () => {
       timezones[l[2]] = {
         code: l[0].toString(),
         timezone: l[2].toString(),
-        ...(countries[countryCode] && { dial: `+${countries[countryCode].dial.replace(/[^0-9]/g, '')}` }),
+        ...(countries[countryCode] && {
+          dial: `+${countries[countryCode].dial.replace(/[^0-9]/g, '')}`,
+          currency_code: countries[countryCode].currency_code,
+        }),
       }
     }
   }

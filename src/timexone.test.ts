@@ -12,7 +12,7 @@ describe('timexone', () => {
       },
     } as any
     const tz = await getTimeZone()
-    expect(tz).toEqual({ code: 'TC', timezone: 'America/Grand_Turk', dial: '+1649' })
+    expect(tz).toEqual({ code: 'TC', timezone: 'America/Grand_Turk', dial: '+1649', currency_code: 'USD' })
   })
 
   test('should return Europe/London on an invalid timezone or not found', async () => {
@@ -26,7 +26,7 @@ describe('timexone', () => {
       },
     } as any
     const tz = await getTimeZone()
-    expect(tz).toEqual({ code: 'GB', dial: '+44', timezone: 'Europe/London' })
+    expect(tz).toEqual({ code: 'GB', dial: '+44', timezone: 'Europe/London', currency_code: 'GBP' })
   })
 
   test('should return Europe/London when timezone data is no available', async () => {
@@ -40,12 +40,12 @@ describe('timexone', () => {
       },
     } as any
     const tz = await getTimeZone()
-    expect(tz).toEqual({ code: 'GB', dial: '+44', timezone: 'Europe/London' })
+    expect(tz).toEqual({ code: 'GB', dial: '+44', timezone: 'Europe/London', currency_code: 'GBP' })
   })
 
-  test('should return the default value during SSR', async () => {
+  test('should return default value during SSR', async () => {
     global.window = null as any
     const tz = await getTimeZone()
-    expect(tz).toEqual({ code: 'GB', dial: '+44', timezone: 'Europe/London' })
+    expect(tz).toEqual({ code: 'GB', dial: '+44', timezone: 'Europe/London', currency_code: 'GBP' })
   })
 })
